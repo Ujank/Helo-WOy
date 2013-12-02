@@ -1,0 +1,121 @@
+<%-- 
+    Document   : dosen
+    Created on : May 15, 2013, 7:07:36 PM
+    Author     : uje
+--%>
+
+
+<%@page import="org.hibernate.HibernateException"%>
+<%@page import="pojos.Dosen"%>
+<%@page import="java.util.List"%>
+<%@page import="org.hibernate.Query"%>
+<%@page import="org.hibernate.Session"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://struts.apache.org/tags-bean" prefix="bean" %>
+<%@taglib uri="http://struts.apache.org/tags-html" prefix="html"%>
+<%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic"%>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>المدرس</title>
+    </head>
+    <body>
+    <center>
+        <h1>الجامع الاسلامية مولان مالك إبراهم</h1>
+    </center>
+       
+        <div id="menu" align="center">
+            <ul>
+                <li><a href="#">HOME</a></li>
+                <li><a href="mahasiswa.jsp">MAHASISWA</a></li>
+                <li><a href="dosen.jsp">DOSEN</a></li>
+                <li><a href="matkul.jsp">MATA KULIAH</a></li>
+                <li><a href="Login_Page.jsp">Logout</a></li>
+            </ul>
+        </div>
+        <div>
+            <html:form action="/dosen" method="post">
+                <table border="0" align="center">
+                    <tbody>
+                        <tr>
+                            <td>NIP</td>
+                            <td>:</td>
+                            <td><html:text property="id_dos"/></td>
+                        </tr>
+                        <tr>
+                            <td>Nama</td>
+                            <td>:</td>
+                            <td><html:text property="nama_dos"/></td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>:</td>
+                            <td><html:text property="status"/></td>
+                        </tr>
+                        <tr>
+                            <td>Jurusan</td>
+                            <td>:</td>
+                            <td><html:text property="jurusan"/></td>
+                        </tr>
+
+                    </tbody>
+                    <tr>
+                        <td><html:submit property="pros" value="Insert"/></td>
+                        <td><html:submit property="pros" value="Update"/></td>
+                        <td><html:submit property="pros" value="Delete"/></td>
+                        <td><html:reset value="Reset"/></td>
+                 
+                        </tr>
+                    
+                </table>
+            </html:form>
+            
+        </div>
+    <center>
+        <table border="1px">
+            <tr>
+                <td width="100px">NIP</td>
+                <td width="250px">Nama</td>
+                <td width="150px">Status</td>
+                <td width="150px">Jurusan</td>
+            </tr>
+        </table>
+    </center>
+    
+            <table width ="400px" height="100px" align="center">
+            <tr>
+                <td>
+                    <logic:notEmpty name="ana">
+                        <logic:iterate id="ana" name="ana">
+                            <bean:write name="ana"></bean:write><br/>
+                        </logic:iterate>
+                    </logic:notEmpty>
+                </td>
+                <td>
+                    <logic:notEmpty name="anta">
+                        <logic:iterate id="anta" name="anta">
+                            <bean:write name="anta"></bean:write><br/>
+                        </logic:iterate>
+                    </logic:notEmpty>
+                </td>
+                <td>
+                    <logic:notEmpty name="anti">
+                        <logic:iterate id="anti" name="anti">
+                            <bean:write name="anti"></bean:write><br/>
+                        </logic:iterate>
+                    </logic:notEmpty>
+                </td>
+                <td>
+                    <logic:notEmpty name="antum">
+                        <logic:iterate id="antum" name="antum">
+                            <bean:write name="antum"></bean:write><br/>
+                        </logic:iterate>
+                    </logic:notEmpty>
+                </td>
+            </tr>
+            
+        </table>
+    
+    </body>
+</html>
